@@ -31,8 +31,8 @@ The **Career Pathways Project** is a web application designed to help users navi
 1. **Clone the repository:**
 
    ```
-   https://github.com/ethic-bakeery/carrer-path.git
-      cd career-pathways
+      gut clone https://github.com/ethic-bakeery/carrer-path.git
+      cd career-path
       cd MAU_Students_Carrer_Path
     ```
 2. **Apply migrations:**
