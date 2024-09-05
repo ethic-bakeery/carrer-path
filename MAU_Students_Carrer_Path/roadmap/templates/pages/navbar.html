@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Roadmap{% endblock %}</title>
+    {% load static %}
+    <style>
+     
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #040e27; 
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            padding-top: 70px; 
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            height: 70px; 
+            background-color: #1e2a49;
+            padding: 0 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 2rem; 
+        }
+
+        .navbar-list {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            margin-left: 1120px; /* Pushes items to the right */
+        }
+
+        .navbar-list li {
+            margin: 0 0.75rem;
+        }
+
+        .navbar-list li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .navbar-list li a:hover {
+            color: #4a5d7e;
+        }
+
+        .profile-dropdown {
+            display: none; 
+        }
+
+
+        main {
+            margin-top: 70px; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="navbar-logo" alt="MAU" src="{% static 'media/media/uploads/images/Untitled.jpeg' %}">
+        <nav>
+            <ul class="navbar-list">
+                
+                
+        
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'index' %}">Dashboard</a></li>
+                    <li><a href="{% url 'search' %}">Roadmaps</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'homepage' %}">Homepage</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

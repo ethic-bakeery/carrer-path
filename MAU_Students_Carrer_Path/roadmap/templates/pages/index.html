@@ -1,0 +1,89 @@
+{% extends 'pages/navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>Welcome to Career Path Finder</title>
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #040e27; 
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            margin-top: 70px; 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 200px auto 50px; 
+            padding: 20px;
+            background-color: #1e2a49; 
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #ddd; 
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #dc3545; 
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #c82333; 
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #bbb; 
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Welcome to Career Path Finder</h1>
+            <p>At Career Path Finder, we help students at Modibbo Adama University of Technology Yola to discover the best paths to achieve their career goals. Our platform provides detailed roadmaps and curated courses from various platforms like YouTube, Coursera, and Udemy.</p>
+            <p>Whether you want to become a Software Engineer, Cyber Security Professional, or pursue any other career, we provide a structured roadmap to guide your learning journey.</p>
+            <div class="cta-buttons">
+                <a href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'register' %}">Sign Up</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p style="text-align: center;">&copy; 2024 Modibbo Adama University of Technology Yola. All rights reserved.</p>
+        </div>
+    </main>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'pages/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #040e27;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            padding-top: 70px;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 130px auto;
+            padding: 20px;
+            background-color: #1e2a49;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            color: #fff;
+        }
+
+        .greeting-message {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .user-name {
+            font-size: 26px;
+            color: #dc3545;
+        }
+
+        .motivation-message {
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .explore-message {
+            font-size: 18px;
+            font-style: italic;
+            color: #4a5d7e;
+        }
+
+        .suggestions {
+            font-size: 19px;
+            margin-top: 40px;
+            color: #b3c5f1;
+        }
+
+        .suggestion-item {
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .suggestion-item strong {
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1 class="greeting-message">{{ greeting }}, <span class="user-name">{{ user_name }}</span>!</h1>
+            <p class="motivation-message">{{ university_message }}</p>
+            <!-- <p class="explore-message">Take a moment to explore the resources that can help shape your future.</p> -->
+        </div>
+
+        <!-- Motivational Career Section -->
+        <div class="suggestions">
+            <div class="suggestion-item">
+                <p><strong>Your future starts with the decisions you make today.</strong> Every class you attend, every skill you master, brings you closer to a rewarding career. Keep striving forward, one step at a time.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p>Remember, <strong>success is the result of consistent effort</strong>. At Modibbo Adama University, we are here to support your journey—believe in your abilities and stay committed to your goals.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p><strong>Set goals that challenge you</strong>. The most successful people are those who push past their comfort zones and embrace growth. Each goal you achieve is a victory that builds your future.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p>Think of your career as a journey. <strong>Every lesson learned is a tool</strong> you’ll use to shape your future. The challenges you face now will make your success even sweeter.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p><strong>Challenges are opportunities</strong> in disguise. Don’t shy away from them; instead, see them as stepping stones to greatness. Your persistence will lead to incredible achievements.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p>Stay curious. <strong>Learning doesn’t end in the classroom</strong>; it’s a lifelong process. The more you know, the more empowered you are to create a career you love.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p>Find what drives you. <strong>Passion fuels success</strong>. When you pursue a career that excites you, every effort feels purposeful, and each milestone becomes a moment of pride.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p>Believe in your potential. <strong>You have the power to create your own future</strong>. Every skill, every experience, is part of a bigger plan. Keep your vision clear and your determination strong.</p>
+            </div>
+
+            <div class="suggestion-item">
+                <p>“<strong>The future belongs to those who prepare for it today.</strong>” – Malcolm X. Keep this in mind as you navigate your studies and career decisions, knowing that your dedication now will pay off in the future.</p>
+            </div>
+        </div>
+    </div>
+    <p class="explore-message" style="text-align: center;">Take a moment to explore the resources that can help shape your future.</p>
+</body>
+</html>
+{% endblock %}

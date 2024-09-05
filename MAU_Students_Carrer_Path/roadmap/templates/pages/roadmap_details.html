@@ -1,0 +1,169 @@
+{% extends 'pages/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+<head>
+    {% load static %}
+    <title>{{ roadmap.career_path }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #040e27;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .roadmap-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            margin: 90px auto;
+            padding: 20px;
+            background-color: #1e2a49;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .roadmap-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #dc3545;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-header h2 {
+            margin: 0;
+            color: #fff;
+            font-size: 28px;
+            text-align: left;
+            flex: 1;
+        }
+
+        .roadmap-header img {
+            border-radius: 12px;
+            max-height: 120px;
+            max-width: 120px;
+            object-fit: cover;
+            margin-left: 20px;
+        }
+
+        .roadmap-description {
+            margin-bottom: 30px;
+            color: #ddd;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .course-item {
+            display: flex;
+            align-items: center;
+            background: #1e2a49;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .course-item:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .course-item a {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .course-item a:hover {
+            text-decoration: underline;
+        }
+
+        .course-details {
+            margin-left: 20px;
+        }
+
+        .course-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .course-platform {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .course-description {
+            font-size: 14px;
+            color: #eee;
+            margin-top: 5px;
+        }
+
+        /* New PDF download button styling */
+        .pdf-download-btn {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .pdf-download-btn:hover {
+            background-color: #c82333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="roadmap-container">
+        <div class="roadmap-header">
+            <h2>{{ roadmap.career_path }}</h2>
+            {% if roadmap.image %}
+                <img src="{{ roadmap.image.url }}" alt="{{ roadmap.career_path }}">
+            {% endif %}
+        </div>
+
+        <p class="roadmap-description">{{ roadmap.description }}</p>
+
+        <!-- PDF Download Button -->
+        {% if roadmap.pdf %}
+            <a href="{{ roadmap.pdf.url }}" download class="pdf-download-btn">Download Roadmap PDF</a>
+        {% else %}
+            <p>No PDF available for this roadmap.</p>
+        {% endif %}
+
+        <h3>Recommended Courses</h3>
+        <div class="course-list">
+            {% for course in courses %}
+                <div class="course-item">
+                    <a href="{{ course.url }}" target="_blank">
+                        <div class="course-details">
+                            <p class="course-title">{{ course.title }}</p>
+                            <p class="course-platform">{{ course.platform }}</p>
+                            <p class="course-description">{{ course.description }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

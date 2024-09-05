@@ -1,0 +1,139 @@
+{% extends 'pages/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+<head>
+    {% load static %}
+    <title>Search Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #040e27; /* Dark blue background */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-container {
+            max-width: 900px;
+            margin: 90px auto;
+            padding: 20px;
+            background-color: #1e2a49; /* Darker container background */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-container h2 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .search-container form {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-container input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            color: #000;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #dc3545; /* Red background for button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+
+        .search-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .search-container li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1e2a49; /* Darker list item background */
+        }
+
+        .search-container img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .search-container .roadmap-info {
+            max-width: 700px;
+        }
+
+        .search-container a {
+            text-decoration: none;
+            color: #dc3545; /* Red color for links */
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .search-container a:hover {
+            text-decoration: underline;
+        }
+
+        .no-results {
+            font-size: 18px;
+            color: #ddd; /* Light grey for no results message */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h2>Search for a Career Path</h2>
+        <form method="GET">
+            <input type="text" name="q" placeholder="Enter career path (e.g., Software Engineer)" value="{{ request.GET.q }}">
+            <button type="submit">Search</button>
+        </form>
+
+        {% if roadmaps %}
+            <h3>Available Roadmaps</h3>
+            <ul>
+                {% for roadmap in roadmaps %}
+                    <li>
+                        {% if roadmap.image %}
+                            <img src="{{ roadmap.image.url }}" alt="{{ roadmap.career_path }}">
+                        {% endif %}
+                        <div class="roadmap-info">
+                            <a href="{% url 'roadmap_detail' roadmap.id %}">{{ roadmap.career_path }}</a>
+                            <p>{{ roadmap.description }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-results">No roadmaps found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+{% endblock %}
