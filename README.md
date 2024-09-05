@@ -45,3 +45,8 @@ The **Career Pathways Project** is a web application designed to help users navi
 ```python3 manage.py runserver
    http://127.0.0.1:8000/
 ```
+
+## Resources
+
+- **Video Demo:** [Download Project Document](https://drive.google.com/file/d/1qM4f28CKXed92ccUdaV0EPQCTTzJFg68/view?usp=sharing)
+
