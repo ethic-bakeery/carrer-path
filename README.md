@@ -30,19 +30,22 @@ The **Career Pathways Project** is a web application designed to help users navi
 
 1. **Clone the repository:**
 
-   ```https://github.com/ethic-bakeery/carrer-path.git
+   ```
+   https://github.com/ethic-bakeery/carrer-path.git
       cd career-pathways
       cd MAU_Students_Carrer_Path
     ```
 2. **Apply migrations:**
 
-```python3 manage.py makemigrations
+```
+   python3 manage.py makemigrations
    python3 manage.py migrate
    python manage.py createsuperuser 
 ```
 3. **Run the development server:**
 
-```python3 manage.py runserver
+```
+   python3 manage.py runserver
    http://127.0.0.1:8000/
 ```
 
